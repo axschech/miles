@@ -1,24 +1,12 @@
 import json
 import time
 
-total_miles = 45000
-montly = total_miles / 12 / 3
-overage = .15
-start = "2015 08 10"
+
+import config
+
+globalConfig = config.read()
 
 pattern = '%Y %m %d'
-
-def toUnixTime(inStr):
-    return int(time.mktime(time.strptime(inStr, pattern)))
-
-month = time.strftime('%m')
-
-first_of_month_str = str(time.strftime('%Y')) + " " + str(time.strftime('%m')) + " 1"
-first_of_month = toUnixTime(first_of_month_str)
-
-print first_of_month
-
-# def get_monthly(input):
 
 
 
