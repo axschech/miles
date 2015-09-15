@@ -4,7 +4,9 @@ import time
 
 import config
 
-globalConfig = config.read()
+obj = config.read()
+
+config = obj['config']
 
 pattern = '%Y %m %d'
 
@@ -45,7 +47,7 @@ if int(miles) <= int(last_mile):
 theStr = "The last time you drove was: " + datetime + "\n"
 theStr += "You've driven: " + str(last_mile + miles) + " total \n"
 theStr += "Since you last drove you've driven " + str(miles - last_mile) + "\n"
-theStr += "You have " + str(total_miles - miles) + " left \n"
+theStr += "You have " + str(config['total_miles'] - miles) + " left \n"
 
 print theStr
 
