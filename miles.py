@@ -11,6 +11,13 @@ config = obj['config']
 pattern = '%Y %m %d'
 
 
+def find_month():
+    tmonth = time.strftime('%m').lstrip('0')
+
+    if int(time.strftime('%d')) < 10:
+        tmonth = tmonth - 1
+    return obj['miles_map'][time.strftime("%Y")][tmonth]
+
 
 try:
     f = open('miles.json', 'r+')
@@ -48,6 +55,10 @@ theStr = "The last time you drove was: " + datetime + "\n"
 theStr += "You've driven: " + str(last_mile + miles) + " total \n"
 theStr += "Since you last drove you've driven " + str(miles - last_mile) + "\n"
 theStr += "You have " + str(config['total_miles'] - miles) + " left \n"
+
+miles_this_month = find_month()
+
+theStr += "You have " + str(miles_this_month - miles) + " \n"
 
 print theStr
 

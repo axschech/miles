@@ -48,6 +48,8 @@ def write():
 	for x in range(0, config['months']):
 
 		current_miles = current_miles + config['per_month']
+		
+		obj['miles_map'][year_num][month_num] = current_miles
 		if month_num > 12:
 			month_num = 1
 			year_num = year_num + 1
@@ -56,7 +58,6 @@ def write():
 			}
 		else:
 			month_num = month_num + 1
-		obj['miles_map'][year_num][month_num] = current_miles
 
 	f.write(json.dumps(obj))
 	f.close()
